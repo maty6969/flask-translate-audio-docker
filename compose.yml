@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    image: flask_app_image
+    restart: unless-stopped
+    volumes:
+      - flask_data:/data
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+
+volumes:
+  flask_data:
